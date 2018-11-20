@@ -30,7 +30,7 @@ plt.barh(y_pos, model.feature_importances_, align='center', alpha=0.4)
 plt.yticks(y_pos, features)
 plt.xlabel('features')
 plt.title('feature_importances')
-plt.show()
+# plt.show()
 
 # === Prepare to train data
 features = ['Sex', 'Age', 'Fare']
@@ -54,7 +54,7 @@ results = pd.DataFrame({
     'Survived' : result_lables
 })
 
-results.to_csv(SCRIPT_PATH + "/submission-" + os.path.basename(__file__) + ".csv", index=False)
+results.to_csv(SCRIPT_PATH + "/submission/submission-" + os.path.basename(__file__) + ".csv", index=False)
 from sklearn.model_selection import cross_val_score
 cv_scores = np.mean(cross_val_score(model, training_data, training_label, scoring='roc_auc', cv=5))
 print(cv_scores)
