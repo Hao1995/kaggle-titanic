@@ -55,3 +55,11 @@ results = pd.DataFrame({
 })
 
 results.to_csv(SCRIPT_PATH + "/submission/submission-" + os.path.splitext(os.path.basename(__file__))[0] + ".csv", index=False)
+
+import os
+os.environ["PATH"] += os.pathsep + "F:/Program Files (x86)/Graphviz2.38/bin/"
+
+import graphviz 
+dot_data = tree.export_graphviz(clf, out_file=None) 
+graph = graphviz.Source(dot_data) 
+graph.render("Titanic")
